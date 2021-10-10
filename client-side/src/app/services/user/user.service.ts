@@ -4,5 +4,6 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class UserService {
-  id: number = 7
+  public firstName: string = ''
+  public lastName: string = 'Kerman'
 }

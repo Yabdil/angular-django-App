@@ -7,7 +7,6 @@ import { AppComponent } from './app.component';
 import { CentralComponent } from './components/central/central.component';
 import { HeaderComponent } from './components/central/header/header.component';
 import { BodyComponent } from './components/central/body/body.component';
-import { FooterComponent } from './components/central/footer/footer.component';
 import { CreateElementComponent } from './components/central/body/create-element/create-element.component';
 import { ListElementComponent } from './components/central/body/list-element/list-element.component';
 import { ElementComponent } from './components/central/body/list-element/element/element.component'
@@ -23,7 +22,6 @@ import { LogoutComponent } from './components/central/body/logout/logout.compone
     CentralComponent,
     HeaderComponent,
     BodyComponent,
-    FooterComponent,
     CreateElementComponent,
     ListElementComponent,
     ElementComponent,

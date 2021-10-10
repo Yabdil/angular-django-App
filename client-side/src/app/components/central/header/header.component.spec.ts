@@ -22,4 +22,12 @@ describe('HeaderComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  it('Should have render title on UI', () => {
+    let title = fixture.nativeElement
+    expect(title.querySelector('.app-name-container p').textContent).toBe('Element App')
+  })
+  it("Should have the connected user's name", () => { 
+    let nameOfUser = fixture.nativeElement
+    expect(nameOfUser.querySelector('.loged-item').textContent).toBe('Yanick Aman')
+  })
 });

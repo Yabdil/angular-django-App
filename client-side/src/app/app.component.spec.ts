@@ -23,13 +23,6 @@ describe('AppComponent', () => {
   it(`should have as title 'mytestapp'`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('mytestapp');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('h4').textContent).toContain('mytestapp app is running!');
+    expect(app.title).toEqual('client-side');
   });
 });

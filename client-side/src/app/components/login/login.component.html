@@ -1,4 +1,13 @@
-<div>
-    <input type="text">
-    This is the login man!
+<div class="login-container">
+   <form class="login" action="#" (ngSubmit)="login()">
+       <div class="actions-container">
+           <label for="email_field">Email Adresse</label>
+           <input type="text" placeholder="" id="email_field" [(ngModel)]="firstName" name="email">
+           <label for="password_field">Password</label>
+           <input type="password" placeholder="" id="password_field">
+        </div>
+        <button type="submit">
+            Login
+        </button>
+    </form>
 </div>

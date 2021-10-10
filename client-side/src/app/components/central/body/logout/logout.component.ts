@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ItemService } from 'src/app/services/item/item.service';
 
 @Component({
   selector: 'app-logout',
@@ -7,8 +8,8 @@ import { Router } from '@angular/router';
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-  show: boolean = true
-  constructor(private route: Router) { }
+  constructor(private route: Router, public itemService: ItemService) { 
+  }
 
   ngOnInit(): void {
   }
@@ -17,13 +18,14 @@ export class LogoutComponent implements OnInit {
     setTimeout(() => { 
       this.route.navigate(['login'])
       },500)
+    this.itemService.showModel = false
     
   }
 
   cancelLogOut():void{ 
     console.log("Not logging out")
     setTimeout(() => { 
-      this.show = false
+      this.itemService.showModel = false
     },500)
   }
 }

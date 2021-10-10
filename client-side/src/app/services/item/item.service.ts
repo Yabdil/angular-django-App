@@ -6,11 +6,13 @@ import { UserService } from '../user/user.service';
   providedIn: 'root'
 })
 export class ItemService {
-
-  constructor(private user: UserService) { }
+  showModel: boolean
+  constructor(private user: UserService) { 
+    this.showModel = false
+  }
 
   getItems():Item[]{ 
-    return items.filter(item => item.createdBy === this.user.id)
+    return items
   }
 }
 

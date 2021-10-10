@@ -6,16 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./create-element.component.css']
 })
 export class CreateElementComponent implements OnInit {
-  str: string = ''
-  show: boolean = true
+  newItem: string = ''
   constructor() { }
 
   ngOnInit(): void {
   }
 
   add(){ 
-    console.log(this.str)
-    this.show = !this.show
+    console.log(this.newItem)
   }
 
 }
