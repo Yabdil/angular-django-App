@@ -1,0 +1,74 @@
+.create-element-container{ 
+    width: 95%;
+    padding: 0.7rem 0;
+    text-align: center;
+    margin-top: 1.2rem;
+    font-family: inherit;
+}
+
+fieldset{ 
+    width: 48%;
+    margin: 0 auto;
+}
+
+fieldset input, button{ 
+    border-radius: 4px;
+    font-size: 0.9rem;
+    padding: 0.3rem 0.5rem;
+}
+
+input{ 
+    width: 72%;
+    border: 1.5px solid #C7CCD2;
+    margin-right: 0.2rem;
+    margin-left: 0;
+    font-size: 0.9rem;
+    max-width: 700px;
+}
+
+input:focus{ 
+    outline: none;
+    box-shadow: 0.5px 0.5px 2px 0.3px #5B93BC;
+}
+
+button{ 
+    background:#3c9c41;
+    color: whitesmoke;
+    border: none;
+    cursor: pointer;
+    padding: 0.35rem 1rem;
+}
+
+button:hover{ 
+    background: #29752d;
+}
+
+legend{
+    color: rgb(32, 71, 71);
+    font-size: 1.2rem;
+    text-align: center;
+    margin: 0 auto;
+}
+
+@media screen and (max-width:700px){
+    .create-element-container{ 
+        text-align: left;
+    }
+    input{ 
+        width: 65%;
+    }
+}
+
+@media screen and (max-width: 550px ) {
+    input{ 
+        width: 99%;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-align: center;
+    }
+    button{ 
+        width: 100%;
+        margin-top: 0.2rem;
+    }
+    
+}

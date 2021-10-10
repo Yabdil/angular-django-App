@@ -1,0 +1,68 @@
+.logout-div-container{ 
+    border: 1px solid red;
+    background-color: rgba(121, 120, 119, 0.42); 
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    z-index: 1;
+    font-size: 1rem;
+}
+
+.logout-container{ 
+    position: absolute;
+    left: 40%;
+    top: 30%;
+    background-color: white;
+    z-index: 3;
+    width: 300px;
+    height: 150px;
+    border-radius: 4px 4px 0 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.title-container{ 
+    background-color: rgb(37, 161, 33);
+    box-shadow: 0.5px 0.5px 5px 0px rgb(37, 161, 33, 55%);
+}
+
+h3{ 
+    color: white;
+    text-align: center;
+    width: 80%;
+    margin-left: 1.8rem;
+    font-size: 1rem;
+}
+
+.buttons-container{ 
+    margin-top: 60px;
+    display: flex;
+    justify-content: space-around;
+}
+
+button{ 
+    padding: 0.3rem 1rem;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.3rem 0.3rem;
+    color: white;
+}
+
+.confirme{ 
+    background-image: linear-gradient(rgb(177, 14, 14), rgb(223, 24, 24), rgb(248, 38, 38));
+}
+
+.cancel{ 
+    background-color: rebeccapurple;
+}
+
+.confirme:hover{ 
+    background-color: red;
+    background-image: none;
+}
+
+.cancel:hover{ 
+    background: rgb(101, 15, 187);
+}

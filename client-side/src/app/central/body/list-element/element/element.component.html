@@ -1,0 +1,5 @@
+<div >
+    <p [class.finished]="item.isFinished" class="element-name-container" (click)="changeStateOfElement()">{{ item.description }}</p>
+    <button class="delete" (click)="delete()">X</button>
+    
+</div>

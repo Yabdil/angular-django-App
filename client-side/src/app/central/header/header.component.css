@@ -1,0 +1,43 @@
+.header-container{
+    background: #3C82B2;
+    width: 100%;
+    margin-top: 0;
+    color: black;
+    height: 32px;
+    padding: 2px 0;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    box-shadow: 0 1px 8px 1px rgb(138, 138, 138, 70%);
+}
+
+.app-name-container{ 
+    width: 150px;
+    text-align: center;
+    margin: 0.1rem 0 0 0.1rem;
+}
+
+.app-name-container p, .log-person-container a { 
+    margin-top: 0;
+}
+
+.log-person-container{ 
+   margin-right: 4px;
+   width: 150px;
+   text-align: right;
+   margin-top: 0.4rem;
+}
+
+.loged-item{ 
+    margin-right: 0.4rem;
+    font-weight: normal;
+}
+
+.log-out-item{ 
+    color: rgb(153, 40, 40);
+    cursor: pointer;
+}
+
+.log-out-item:hover{
+    color: red;
+}

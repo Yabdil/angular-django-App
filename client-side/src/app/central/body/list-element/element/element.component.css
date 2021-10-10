@@ -1,0 +1,52 @@
+div{ 
+    list-style: none;
+    margin: 8px 2px;
+    display: flex;
+    justify-content: space-between;
+    background-color: dodgerblue;
+    background-image: linear-gradient(to top right, #196fc0,#3590E9,dodgerblue);
+    color: white;
+    min-height: 25px;
+    max-height: 40px;
+}
+
+div:hover{ 
+    box-shadow: 0.5px 0.6px 3px 1px rgb(138, 138, 138, 70%);
+    transition: 0.5s;
+}
+
+button{ 
+    border: none;
+    margin-right: 0px;
+    outline: none;
+    cursor: pointer;
+    color: black;
+    padding: 0 0.7rem;
+    opacity: 0.75;
+    background: none;
+}
+
+p{ 
+    margin-top: 8px;
+    margin-left: 3px;
+    cursor: pointer;
+    overflow: auto;
+    line-height: normal;
+}
+
+button:hover{ 
+    opacity: 1;
+    color: red;
+}
+
+.finished{ 
+    text-decoration: line-through;
+}
+
+
+
+@media screen and (max-width: 700px){ 
+    div{ 
+        font-size: 0.8rem
+    };
+}
