@@ -1,7 +1,6 @@
 .login-container{ 
     width: 100vw;
     height: 100vh;
-    border: 1px solid red;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -22,10 +21,15 @@
 }
 
 input{ 
-    padding: 0.1rem 0;
+    padding: 0.1rem 0.35rem;
     margin-top: 0.1rem;
     border: 1px solid rgb(206, 199, 199);
     border-radius: 0.2rem;
+    
+}
+.isError{ 
+    border: 1px solid red;
+    outline: red;
 }
 
 label:nth-child(3){ 
@@ -47,3 +51,16 @@ button:hover{
     background-color: rgb(11, 121, 121);
 
 }
+
+
+
+.msg-error{ 
+    font-size: 85%;
+    color: red;
+    border: 1px solid red;
+    padding: .1rem .55rem;
+    visibility: visible;
+}
+
+
+

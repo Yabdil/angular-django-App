@@ -9,10 +9,15 @@ import { UserService } from 'src/app/services/user/user.service';
 })
 export class LoginComponent implements OnInit {
   public firstName: string = ''
+  public msgError: string = 'ss'
   constructor(private route: Router, public userService: UserService) { }
 
   ngOnInit(): void {
 
+  }
+
+  isError():boolean{ 
+    return this.msgError.length > 1
   }
 
   login():void{ 
