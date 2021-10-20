@@ -2,13 +2,13 @@
    <form class="login" action="#" (ngSubmit)="login()">
        <div class="actions-container">
            <label for="email_field">Email</label>
-           <input type="text" placeholder="" [class.isError]="isError()" id="email_field" [(ngModel)]="firstName" name="email" autofocus>
+           <input type="text" placeholder="" [class.isError]="isError()" id="email_field" [(ngModel)]="email" name="email" autofocus>
            <label for="password_field">Password</label>
-           <input type="password" [class.isError]="isError()" placeholder="" id="password_field">
+           <input type="password" [class.isError]="isError()" placeholder=""  [(ngModel)]="password" id="password_field">
         </div>
         <button type="submit">
             Login
         </button>
-        <span class="msg-error" *ngIf="isError()">{{ msgError }}</span>
+        <span class="msg-error" *ngIf="isError()">{{ errorMessage }}</span>
     </form>
 </div>

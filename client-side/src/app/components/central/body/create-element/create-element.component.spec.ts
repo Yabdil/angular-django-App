@@ -24,10 +24,8 @@ describe('CreateElementComponent', () => {
   it('should have the two ways bindings', () => { 
     let nativeItem = fixture.nativeElement
     let inputElement: HTMLInputElement = nativeItem.querySelector('input')
-    // Testing the two ways binding
+    // Testing the property binding
     expect(inputElement.value).toBe(component.newItem)
-    // here we will simulate a input action 
-    inputElement.value = 'Testing the value'
-    expect(component.newItem).toBe(inputElement.value)
+
   })
 });

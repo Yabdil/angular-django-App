@@ -23,7 +23,6 @@ describe('LogoutComponent', () => {
   });
 
   it('should create', () => {
-    component.show = false
     expect(component).toBeTruthy();
   });
 });

@@ -8,25 +8,22 @@ import { UserService } from 'src/app/services/user/user.service';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
-  public firstName: string = ''
-  public msgError: string = 'ss'
+  public email: string = ''
+  public password: string = ''
+  public errorMessage: string = ''
   constructor(private route: Router, public userService: UserService) { }
 
-  ngOnInit(): void {
-
-  }
+  ngOnInit(): void {}
 
   isError():boolean{ 
-    return this.msgError.length > 1
+    return this.errorMessage.length > 1
   }
 
   login():void{ 
-    if (this.firstName.length > 5){ 
-      let name = this.firstName.slice(0,5)
-      console.log(name)
-      this.userService.firstName = name
-      this.route.navigate(['/'])
+    if (!this.isError()){ // Checking we dont have error msg
+      console.log('Tringto log in')
     }
+      this.route.navigate(['/'])
   }
 
 }

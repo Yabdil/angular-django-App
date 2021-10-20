@@ -1,5 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ComponentFixture, ComponentFixtureAutoDetect, TestBed } from '@angular/core/testing';
+import { ItemService } from 'src/app/services/item/item.service';
+import { UserService } from 'src/app/services/user/user.service';
 import { HeaderComponent } from './header.component';
 
 describe('HeaderComponent', () => {
@@ -7,27 +8,41 @@ describe('HeaderComponent', () => {
   let fixture: ComponentFixture<HeaderComponent>;
 
   beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      declarations: [ HeaderComponent ]
+    TestBed.configureTestingModule({
+      // provide the component-under-test and dependent service
+      declarations: [ HeaderComponent ],
+      providers: [
+        { provide: UserService, useClass: FakeUserService},
+        { provide: ItemService}
+      ]
     })
-    .compileComponents();
   });
 
   beforeEach(() => {
     fixture = TestBed.createComponent(HeaderComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
+    TestBed.inject(UserService)
   });
 
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
   it('Should have render title on UI', () => {
     let title = fixture.nativeElement
     expect(title.querySelector('.app-name-container p').textContent).toBe('Element App')
   })
-  it("Should have the connected user's name", () => { 
-    let nameOfUser = fixture.nativeElement
-    expect(nameOfUser.querySelector('.loged-item').textContent).toBe('Yanick Aman')
+
+  it("Should have the connected user's fullName", () => { 
+    fixture.detectChanges()
+    expect(component.fullName).toBe('Abdillahi Abdi')
   })
 });
+
+
+
+class FakeUserService{ 
+  firstName = 'Abdillahi'
+  lastName = 'Abdi'
+
+}
