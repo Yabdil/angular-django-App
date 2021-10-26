@@ -1,6 +1,6 @@
 <div class="list-elements">
         <div class="list-element-container">
-                <app-element *ngFor="let item of items trackBy: trackByIdItem" [item]="item">
+                <app-element *ngFor="let item of items trackBy: trackByIdItem" [item]="item" (deleteItem)="delete($event)">
                 </app-element>
         </div>
 </div>

@@ -55,7 +55,7 @@ button:hover{
 
 
 .msg-error{ 
-    font-size: 85%;
+    font-size: 0.8rem;
     color: red;
     border: 1px solid red;
     padding: .1rem .55rem;

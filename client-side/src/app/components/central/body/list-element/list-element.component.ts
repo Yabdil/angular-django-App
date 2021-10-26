@@ -11,8 +11,9 @@ import { Item } from '../../../../models/item.model';
 
 export class ListElementComponent implements OnInit {
 
-  items!: Item[]
-  constructor(public itemsService: ItemService) { }
+   items!: Item[]
+  constructor(public itemsService: ItemService) {
+   }
 
   ngOnInit(): void {
     this.items = this.itemsService.getItems()
@@ -20,6 +21,11 @@ export class ListElementComponent implements OnInit {
 
   trackByIdItem(index: number, item: Item): number {  
       return item.id
+  }
+
+  delete(item:Item):void{ 
+    this.itemsService.deleteItem(item)
+    this.items = this.itemsService.getItems()
   }
 
 }

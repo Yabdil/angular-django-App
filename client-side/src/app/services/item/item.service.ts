@@ -7,14 +7,27 @@ import { UserService } from '../user/user.service';
 })
 export class ItemService {
   showModel: boolean
+  public items: Item[]
   constructor(private user: UserService) { 
     this.showModel = false
+    this.items = items
   }
 
   getItems():Item[]{ 
-    return items
+    return this.items
+  }
+
+  addItem(item:Item):void{ 
+    this.items.push(item)
+  }
+
+  deleteItem(item:Item):void{ 
+    let filteredItems = this.items.filter(singleItem => singleItem.id !== item.id)
+    this.items = filteredItems
   }
 }
+
+
 
 const items: Item[] = [ 
   {
