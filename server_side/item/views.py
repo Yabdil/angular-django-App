@@ -58,13 +58,14 @@ class AuthLogin(APIView):
         """
         email = request.data.get("email")
         password = request.data.get('password')
+        print(email, print(password))
         user = authenticate(email=email, password=password)
         if user is None:
             return Response('Not allowed', status=HTTP_400_BAD_REQUEST)
 
         token, _ = Token.objects.get_or_create(user=user)
-        user_json = {'id': user.id, 'first_name': user.first_name,
-                     'last_name': user.last_name, 'token': token.key}
+        user_json = {'id': user.id, 'firstName': user.first_name,
+                     'lastName': user.last_name, 'token': token.key}
 
         return Response(user_json, status=HTTP_200_OK)
 

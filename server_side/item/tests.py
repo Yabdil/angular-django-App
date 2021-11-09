@@ -2,7 +2,6 @@ import os
 import unittest
 import json
 
-from django.test import TestCase
 from rest_framework.test import APIClient
 from dotenv import load_dotenv
 
@@ -18,11 +17,6 @@ WRONG_EMAIL = os.getenv('wrong_email')
 WRONG_PASSWORD = os.getenv('wrong_password')
 
 
-def generete_token(email, password):
-    result = APIClient().post('/login', {'email': email, 'password': password})
-    return json.loads(result.content)
-
-
 class TestAuthLogin(unittest.TestCase):
     def setUp(self):
         self.client = APIClient()
@@ -35,7 +29,6 @@ class TestAuthLogin(unittest.TestCase):
 
         # Checking whether we have the token in the response
         returned_data = json.loads(response.content)
-        print(returned_data)
         self.assertIn('token', returned_data.keys())
 
     def test_fail_login(self):
@@ -50,7 +43,7 @@ class TestAuthLogin(unittest.TestCase):
 
 class TestAuthLogout(unittest.TestCase):
     def setUp(self):
-        self.response = generete_token(EMAIL, PASSWORD)
+        self.response = self.generete_token(EMAIL, PASSWORD)
         self.client = APIClient()
 
     def test_logout(self):
@@ -59,6 +52,10 @@ class TestAuthLogout(unittest.TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertEqual(json.loads(response.content), 'Successfully logout')
+
+    def generete_token(self, email, password):
+        result = APIClient().post('/login', {'email': email, 'password': password})
+        return json.loads(result.content)
 
 
 class TestItem(unittest.TestCase):
