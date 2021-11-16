@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ErrorHandler, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { User } from 'src/app/models/user.models';
 import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
@@ -20,14 +21,19 @@ export class LoginComponent implements OnInit {
 
   ngOnInit(): void {}
 
-  isError():boolean{ 
+  public isError():boolean{ 
     return this.errorMessage.length > 1
   }
 
-  login():void{ 
-    if (this.email.length > 5 && this.password.length > 5){ 
-    }else{ 
-      this.route.navigate(['/'])
+  public login():void{ 
+    if (this.email.length > 1 && this.password.length > 1){ 
+      this.userService.login(this.email, this.password).subscribe((data: User) => {     
+          this.userService.saveUserInLocalStorage(data)
+          this.route.navigate(['']) // Navigate to the home page
+      },
+      (error) => { 
+        this.errorMessage = error.error
+      })
     }
   }
 

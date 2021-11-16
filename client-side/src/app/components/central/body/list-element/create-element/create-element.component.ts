@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { Item } from 'src/app/models/item.model';
 import { ItemService } from 'src/app/services/item/item.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-create-element',
@@ -9,21 +10,21 @@ import { ItemService } from 'src/app/services/item/item.service';
 })
 export class CreateElementComponent implements OnInit {
   public newItemDescription: string = ''
-  constructor(private itemService: ItemService) { }
+  @Output() addItem = new EventEmitter<Item>()
+  constructor(private itemService: ItemService, private user: UserService) { }
 
   ngOnInit(): void {
   }
 
-  add(){ 
-    console.log(this.newItemDescription)
-    let newItem: Item = { 
-      id: 0,
+  add():void{ 
+    let user = this.user.getUser()
+    let id = user ? user.id: 0
+    let newItem: Item = {
       description: this.newItemDescription,
-      isFinished: false,
-      createdBy: 0,
-      dateCreated: new Date()
+      is_finished: false,
+      created_by: id
     }
-    this.itemService.addItem(newItem)
+    this.addItem.emit(newItem)
     this.newItemDescription = ''
   }
 

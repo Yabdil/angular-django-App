@@ -1,6 +1,8 @@
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ItemService } from 'src/app/services/item/item.service';
+import { UserService } from 'src/app/services/user/user.service';
 
 @Component({
   selector: 'app-logout',
@@ -8,22 +10,21 @@ import { ItemService } from 'src/app/services/item/item.service';
   styleUrls: ['./logout.component.css']
 })
 export class LogoutComponent implements OnInit {
-  constructor(private route: Router, public itemService: ItemService) { 
+  constructor(private route: Router, public itemService: ItemService, private userService: UserService) { 
   }
 
   ngOnInit(): void {
   }
   confirmLogOut():void{ 
-    console.log("we are logging out")
-    setTimeout(() => { 
-      this.route.navigate(['login'])
-      },500)
-    this.itemService.showModel = false
+    this.userService.logout().subscribe(() => { 
+      this.userService.deleteUerInLocalStorage()
+      this.route.navigate(['/login'])
+      this.itemService.showModel = false
+    })
     
   }
 
   cancelLogOut():void{ 
-    console.log("Not logging out")
     setTimeout(() => { 
       this.itemService.showModel = false
     },500)

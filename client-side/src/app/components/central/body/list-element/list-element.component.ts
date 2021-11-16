@@ -11,21 +11,39 @@ import { Item } from '../../../../models/item.model';
 
 export class ListElementComponent implements OnInit {
 
-   items!: Item[]
+   public items!: Item[]
   constructor(public itemsService: ItemService) {
    }
 
   ngOnInit(): void {
-    this.items = this.itemsService.getItems()
+    this.getItems()
   }
 
-  trackByIdItem(index: number, item: Item): number {  
-      return item.id
+  public getItems():void{ 
+    this.itemsService.getItems().subscribe((resuts:Item[]) => { 
+      this.items = resuts
+    })
   }
 
-  delete(item:Item):void{ 
-    this.itemsService.deleteItem(item)
-    this.items = this.itemsService.getItems()
+  public trackByIdItem(index: number, item: Item): number {  
+      return item.id!
+  }
+
+  public addItem(newItem: Item):void{
+    console.log(newItem)
+    this.itemsService.addItem(newItem).subscribe((data: Item) => { 
+      this.getItems()
+    },
+    (error) => {
+      console.log(error)
+    })
+  }
+
+  public deleteItem(id:number):void{ 
+    this.itemsService.deleteItem(id).subscribe((msg:any) => { 
+      this.getItems()
+    })
+    
   }
 
 }

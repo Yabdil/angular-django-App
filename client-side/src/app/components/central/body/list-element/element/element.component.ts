@@ -8,7 +8,7 @@ import {Item} from '../../../../../models/item.model';
 })
 export class ElementComponent implements OnInit {
   @Input() item!: Item;
-  @Output() deleteItem = new EventEmitter<Item>()
+  @Output() deleteItem = new EventEmitter<number>()
 
   constructor() {
    }
@@ -17,11 +17,11 @@ export class ElementComponent implements OnInit {
   }
 
   delete():void{ 
-    this.deleteItem.emit(this.item)
+    this.deleteItem.emit(this.item.id)
   }
 
   changeStateOfElement():void{ 
-    this.item.isFinished = !this.item.isFinished
+    this.item.is_finished = !this.item.is_finished
   }
 
 }

@@ -1,18 +1,13 @@
 export class Item {
-
-    
-    public id: number
+    public id?: number
     public description: string
-    public isFinished: boolean
-    public createdBy: number
-    public dateCreated: Date
-
-
-    constructor(id:number, description: string, isFinished: boolean, createdBy: number, dateCreated: Date){ 
+    public is_finished: boolean
+    public created_by: number
+    
+    constructor(id:number, description: string, is_finished: boolean, create_by: number){ 
         this.id = id
         this.description = description
-        this.isFinished = isFinished
-        this.createdBy = createdBy
-        this.dateCreated = dateCreated
+        this.is_finished = is_finished
+        this.created_by = create_by
     }
 }

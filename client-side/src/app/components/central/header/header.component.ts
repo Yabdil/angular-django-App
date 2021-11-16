@@ -17,8 +17,8 @@ export class HeaderComponent implements OnInit {
   logOut():void{ 
     this.itemService.showModel = true
   }
-  get fullName():string{ 
-    return `${this.userService.firstName} ${this.userService.lastName}`
+  get fullName():string|null{ 
+    return this.userService.getFullName()
   }
 
 }
