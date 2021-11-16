@@ -38,7 +38,7 @@ class TestAuthLogin(unittest.TestCase):
 
         # Check the returned message
         msg = json.loads(wrong_response.content)
-        self.assertEqual(msg, 'Not allowed')
+        self.assertEqual(msg, 'Wrong username or password')
 
 
 class TestAuthLogout(unittest.TestCase):
