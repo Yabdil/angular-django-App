@@ -42,6 +42,9 @@ export class ListElementComponent implements OnInit {
   public deleteItem(id:number):void{ 
     this.itemsService.deleteItem(id).subscribe((msg:any) => { 
       this.getItems()
+    },
+    (error) => {
+      console.log(error.error)
     })
     
   }
