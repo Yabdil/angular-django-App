@@ -1,31 +1,31 @@
-from django.shortcuts import render
 from django.contrib.auth import authenticate
-from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
 from rest_framework.status import (
     HTTP_400_BAD_REQUEST,
-    HTTP_404_NOT_FOUND,
     HTTP_200_OK,
     HTTP_201_CREATED,
     HTTP_401_UNAUTHORIZED
 )
 from rest_framework.authtoken.models import Token
-from rest_framework.permissions import AllowAny, IsAuthenticated
-from rest_framework.decorators import api_view, permission_classes, authentication_classes
+from rest_framework.permissions import AllowAny
 from rest_framework.views import APIView
-from rest_framework.authentication import TokenAuthentication
 
 from .serializer import ItemSerializer
-from .models import ItemObject, CustomModel
+from .models import ItemObject
 
 
 class ItemView(APIView):
     """
-    Here we will expose the lists
+    Here we will expose api of item
     """
     permission_classes = [AllowAny]
 
     def get(self, request):
+        """
+        Return the list of items
+        :param request
+        :return Response with serialized items data
+        """
         items = ItemObject.objects.all()
         serialized_items = ItemSerializer(items, many=True)
         return Response(serialized_items.data)
@@ -37,9 +37,7 @@ class ItemView(APIView):
         :return: Response
         """
         new_item = ItemSerializer(data=request.data)
-        print(request.data)
         if new_item.is_valid():
-            print(request.data, new_item.validated_data)
             new_item.save()
             return Response('Its saved and correct', status=HTTP_201_CREATED)
         return Response('incorrect', status=HTTP_400_BAD_REQUEST)
@@ -88,11 +86,8 @@ class AuthLogout(APIView):
         :return: Response
         """
         token = request.query_params.get("token")
-        print(request.query_params)
-        print(token)
         if token is not None:
             user = Token.objects.get(key=token)
-            print(user)
             return Response('Successfully logout', status=HTTP_200_OK)
         return Response("No token provided", status=HTTP_400_BAD_REQUEST)
 
